@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internship Portfolio — Source</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main{max-width:1100px}
+    .tabs{display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap}
+    .tabs button{padding:8px 12px; border-radius:10px; background:var(--glass); border:1px solid var(--border); color:var(--ink); font-weight:700; cursor:pointer}
+    .tabs button.active{background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#001220}
+    pre{max-height:70vh; overflow:auto; background:#0a1227; border:1px solid var(--border); border-radius:16px; padding:16px}
+    code{white-space:pre; display:block}
+    a.back{display:inline-block; margin:16px 0; color:var(--ink)}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">RI<span>.</span></div>
+    <nav><a href="index.html">← Back to site</a></nav>
+  </header>
+  <main class="panel reveal shown">
+<!-- Injected: Verizon Global Solutions Technology Internship Target (R-1086610) -->
+
+
+    <h2>Source Code of this Website</h2>
+    <p class="sub">These are the exact files used to build the page you just viewed.</p>
+    <div class="tabs">
+      <button data-file="index.html" class="active">index.html</button>
+      <button data-file="style.css">style.css</button>
+      <button data-file="script.js">script.js</button>
+    </div>
+    <pre><code id="viewer"></code></pre>
+  </main>
+  <script>
+    const viewer = document.getElementById('viewer');
+    async function loadFile(name){
+      const res = await fetch(name);
+      const text = await res.text();
+      viewer.textContent = text;
+    }
+    document.querySelectorAll('.tabs button').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        loadFile(btn.dataset.file);
+      });
+    });
+    loadFile('index.html');
+  </script>
+
+<script>
+window.TYPED_STRINGS = [
+  "optimizing operations with data",
+  "building measurable improvements in supply chains",
+  "designing reliable systems in code and process"
+];
+</script>
+</body>
+</html>
