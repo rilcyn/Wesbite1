@@ -43,7 +43,7 @@ step();
 // Typewriter headline
 const lines = [
   "I like solving complex problems.",
-  "I understand the importance of security within network systems.",
+  "I understand the importance of reliable, efficient systems in industry.",
   "Measure. Improve. Repeat."
 ];
 let li=0, ci=0, del=false;
